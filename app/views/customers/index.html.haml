@@ -1,0 +1,7 @@
+%h1 Our customers
+
+%table
+  - vm.customers.each do |customer|
+    %tr
+      %td= vm.customer.name
+      %td= vm.customer.balance
