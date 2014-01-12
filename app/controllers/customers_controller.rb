@@ -5,7 +5,7 @@ class CustomersController < ApplicationController
 
   def show
     vm.customer = Customer.find(params[:id])
-    vm.transaction_summary = Struct.new(:starting_balance, :entries, :current_balance).new('$0.00',[],'$0.00')
+    vm.transaction_summary = TransactionList.new(vm.customer)
   end
 
   def new
