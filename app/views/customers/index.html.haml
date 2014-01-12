@@ -1,7 +1,9 @@
 %h1 Our customers
 
-%table
+= link_to '+ New', new_customer_path
+
+%table.customers
   - vm.customers.each do |customer|
-    %tr
-      %td= vm.customer.name
-      %td= vm.customer.balance
+    %tr.customer
+      %td.name= link_to customer, customer
+      %td.balance= "$%.2f" % customer.balance
