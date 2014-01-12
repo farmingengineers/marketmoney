@@ -1,0 +1,20 @@
+= link_to '<< Back', :action => 'index'
+
+%h1= vm.customer.name
+
+%p= vm.customer.notes
+
+%table.transactions
+  %tr.starting-balance
+    %td.date
+    %td.description
+    %td.amount= vm.transaction_summary.starting_balance
+  - vm.transaction_summary.entries.each do |transaction|
+    %tr.transaction
+      %td.date= transaction.date
+      %td.description= transaction.description
+      %td.amount= transaction.amount
+  %tr.current-balance
+    %td.date
+    %td.description
+    %td.amount= vm.transaction_summary.current_balance

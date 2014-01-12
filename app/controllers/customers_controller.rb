@@ -3,6 +3,11 @@ class CustomersController < ApplicationController
     vm.customers = Customer.all
   end
 
+  def show
+    vm.customer = Customer.find(params[:id])
+    vm.transaction_summary = Struct.new(:starting_balance, :entries, :current_balance).new('$0.00',[],'$0.00')
+  end
+
   def new
     vm.customer = Customer.new
   end
