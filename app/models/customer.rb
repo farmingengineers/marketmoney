@@ -4,7 +4,7 @@ class Customer < ActiveRecord::Base
   validates :name, :presence => true
 
   def balance
-    0.00
+    transactions.sum(:amount)
   end
 
   def to_s
