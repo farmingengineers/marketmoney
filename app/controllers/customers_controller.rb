@@ -13,17 +13,28 @@ class CustomersController < ApplicationController
   end
 
   def create
-    customer = Customer.new
+    persist(Customer.new, 'new')
+  end
+
+  def edit
+    vm.customer = Customer.find(params[:id])
+  end
+
+  def update
+    persist(Customer.find(params[:id]), 'edit')
+  end
+
+  private
+
+  def persist(customer, form_action)
     customer.name = params[:customer][:name]
     customer.notes = params[:customer][:notes]
     customer.save!
     redirect_to :action => 'index'
   rescue
     vm.customer = customer
-    render :action => 'new'
+    render :action => form_action
   end
-
-  private
 
   helper_method :vm
   def vm
