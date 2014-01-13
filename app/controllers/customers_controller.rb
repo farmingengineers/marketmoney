@@ -11,6 +11,7 @@ class CustomersController < ApplicationController
     market = Market.new :params => params[:market]
     if market.valid?
       market.save!
+      redirect_to :action => 'index'
     else
       render :action => 'edit', :locals => { :vm => model }
     end
