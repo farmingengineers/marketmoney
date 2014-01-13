@@ -5,20 +5,13 @@ class Market
   end
 
   def valid?
-    date_valid? && transactions_valid?
+    date_valid? && invalid_customer_ids.empty? && new_transactions.all?(&:valid?)
   end
 
   def save!
     ActiveRecord::Base.transaction do
-      @params[:transactions].each do |customer_id, data|
-        if data[:amount].present?
-          customer = @customers.detect { |c| c.id.to_s == customer_id.to_s }
-          transaction = customer.transactions.new
-          transaction.occurred_on = @params[:date]
-          transaction.amount = data[:amount]
-          transaction.description = data[:description]
-          transaction.save!
-        end
+      new_transactions.each do |transaction|
+        transaction.save!
       end
     end
   end
@@ -32,17 +25,21 @@ class Market
     false
   end
 
-  def transactions_valid?
-    @params[:transactions].inject(true) { |valid, (k,v)| valid && transaction_valid?(k,v) }
+  def invalid_customer_ids
+    @invalid_customer_ids ||= @params[:transactions].map { |k,v| k } - @customers.map { |c| c.id.to_s }
   end
 
-  def transaction_valid?(customer_id, data)
+  def new_transactions
+    @new_transactions ||= @params[:transactions].map { |k, v| build_transaction(k, v) }.compact
+  end
+
+  def build_transaction(customer_id, data)
+    return nil if data[:amount].blank?
     customer = @customers.detect { |c| c.id.to_s == customer_id.to_s }
-    return false if customer.nil?
-    if data[:amount].present?
-      Kernel.Float(data[:amount]) rescue false
-    else
-      true
+    customer.transactions.build do |transaction|
+      transaction.occurred_on = @params[:date]
+      transaction.amount = data[:amount]
+      transaction.description = data[:description]
     end
   end
 end
