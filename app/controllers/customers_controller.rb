@@ -41,8 +41,7 @@ class CustomersController < ApplicationController
   private
 
   def persist(customer, form_action)
-    customer.name = params[:customer][:name]
-    customer.notes = params[:customer][:notes]
+    customer.attributes = params.require(:customer).permit(:name, :notes)
     customer.save!
     redirect_to :action => 'index'
   rescue
