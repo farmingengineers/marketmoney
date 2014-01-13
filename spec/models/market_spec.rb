@@ -56,7 +56,7 @@ describe Market do
           let(:new_transaction) { Transaction.last }
           it { expect(new_transaction.customer).to eq(customer) }
           it { expect(new_transaction.occurred_on).to eq(Date.parse('2014-02-02')) }
-          it { expect(new_transaction.amount).to eq(2) }
+          it { expect(new_transaction.amount).to eq(-2) }
           it { expect(new_transaction.description).to be_blank }
           context 'and description' do
             let(:description) { 'tomatoes' }

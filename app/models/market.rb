@@ -38,7 +38,7 @@ class Market
     customer = @customers.detect { |c| c.id.to_s == customer_id.to_s }
     customer.transactions.build do |transaction|
       transaction.occurred_on = @params[:date]
-      transaction.amount = data[:amount]
+      transaction.amount = "-#{data[:amount]}"
       transaction.description = data[:description]
     end
   end
