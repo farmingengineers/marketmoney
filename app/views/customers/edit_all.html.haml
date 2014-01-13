@@ -1,0 +1,19 @@
+=form_tag market_path, :method => 'patch' do
+  %div
+    = label_tag 'market[date]', 'Date'
+    = date_field_tag 'market[date]', Date.today
+  %table.customers
+    %tr
+      %th.name Name
+      %th.last-visit Last Visit
+      %th.balance Balance
+      %th.spent-today Spent today
+      %th.spent-on
+    - vm.customers.each do |customer|
+      %tr.customer
+        %td.name= link_to customer, customer
+        %td.last-visit= customer.last_transaction
+        %td.balance= money customer.balance
+        %td.spent-today= number_field_tag "market[#{customer.id}][amount]", nil, :step => '0.01'
+        %td.spent-on= text_field_tag "market[#{customer.id}][description]", nil, :placeholder => 'e.g. Beets, Tomatoes'
+  = submit_tag 'Save'
