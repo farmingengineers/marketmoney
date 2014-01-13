@@ -7,6 +7,15 @@ class CustomersController < ApplicationController
     vm.customers = CustomerList.new
   end
 
+  def update_all
+    market = Market.new :params => params[:market]
+    if market.valid?
+      market.save!
+    else
+      render :action => 'edit', :locals => { :vm => model }
+    end
+  end
+
   def show
     vm.customer = Customer.find(params[:id])
     vm.transaction_summary = TransactionList.new(vm.customer)

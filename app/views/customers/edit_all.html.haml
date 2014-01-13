@@ -14,6 +14,6 @@
         %td.name= link_to customer, customer
         %td.last-visit= customer.last_transaction
         %td.balance= money customer.balance
-        %td.spent-today= number_field_tag "market[#{customer.id}][amount]", nil, :step => '0.01'
-        %td.spent-on= text_field_tag "market[#{customer.id}][description]", nil, :placeholder => 'e.g. Beets, Tomatoes'
+        %td.spent-today= number_field_tag "market[transactions][#{customer.id}][amount]", nil, :step => '0.01'
+        %td.spent-on= text_field_tag "market[transactions][#{customer.id}][description]", nil, :placeholder => 'e.g. Beets, Tomatoes'
   = submit_tag 'Save'
