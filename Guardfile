@@ -1,7 +1,13 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard :rspec, :all_after_pass => false, :cli => '--fail-fast --tty --format documentation' do
+rspec_options = {
+  :all_after_pass => false,
+  :failed_mode => :none,
+  :cmd => 'bundle exec rspec --tty --fail-fast --format documentation --order default'
+}
+
+guard :rspec, rspec_options do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
