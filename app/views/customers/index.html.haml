@@ -1,9 +1,15 @@
 %h1 Our customers
 
 = link_to '+ New', new_customer_path
+= link_to 'Market', market_path
 
 %table.customers
+  %tr
+    %th Name
+    %th Last Visit
+    %th Balance
   - vm.customers.each do |customer|
     %tr.customer
       %td.name= link_to customer, customer
+      %td.last-visit= customer.last_transaction
       %td.balance= money customer.balance

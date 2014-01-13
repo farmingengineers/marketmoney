@@ -1,6 +1,11 @@
 module CustomersHelper
   def money(amount)
-    "$%.2f" % amount
+    case amount
+    when Numeric
+      "$%.2f" % amount
+    else
+      amount
+    end
   end
 
   def date(date)

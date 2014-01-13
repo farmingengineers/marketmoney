@@ -1,6 +1,10 @@
 class CustomersController < ApplicationController
   def index
-    vm.customers = Customer.all
+    vm.customers = CustomerList.new
+  end
+
+  def edit_all
+    vm.customers = CustomerList.new
   end
 
   def show
