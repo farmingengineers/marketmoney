@@ -6,8 +6,4 @@ class Customer < ActiveRecord::Base
   def balance
     transactions.sum(:amount)
   end
-
-  def to_s
-    name
-  end
 end
