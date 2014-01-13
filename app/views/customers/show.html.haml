@@ -9,7 +9,7 @@
 %table.transactions
   %tr.starting-balance
     %td.date
-    %td.description
+    %td.description start
     %td.amount= money vm.transaction_summary.starting_balance
   - vm.transaction_summary.entries.each do |transaction|
     %tr.transaction
@@ -17,6 +17,6 @@
       %td.description= transaction.description
       %td.amount= money transaction.amount
   %tr.current-balance
-    %td.date
-    %td.description
+    %td.date= date Date.today
+    %td.description current
     %td.amount= money vm.transaction_summary.current_balance
