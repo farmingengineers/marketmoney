@@ -16,7 +16,6 @@ gem 'unicorn'
 
 # not production
 group :development, :test do
-  gem 'debugger', :require => false
   gem 'rspec-rails'
   gem 'sqlite3'
 end
@@ -24,6 +23,11 @@ end
 group :development do
   gem 'guard-rspec'
   gem 'spring'
+end
+
+group :test do
+  gem 'debugger'
+  gem 'factory_girl_rails'
 end
 
 
