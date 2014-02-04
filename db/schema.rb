@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112224418) do
+ActiveRecord::Schema.define(version: 20140131014835) do
+
+  create_table "admins", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "username"
+    t.boolean  "enabled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "admins", ["provider", "uid"], name: "index_admins_on_provider_and_uid"
 
   create_table "customers", force: true do |t|
     t.string   "name"
