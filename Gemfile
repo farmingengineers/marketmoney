@@ -12,7 +12,9 @@ gem 'sass-rails', '~> 4.0.0.rc1'
 gem 'uglifier', '>= 1.3.0'
 
 # everything else
+gem 'dotenv'
 gem 'haml-rails'
+gem 'omniauth-openid'
 gem 'unicorn'
 
 
