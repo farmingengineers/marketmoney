@@ -17,4 +17,11 @@ class SessionsController < ApplicationController
       redirect_to login_with_google_path
     end
   end
+
+  protected
+
+  def protect_against_forgery?
+    return false if action_name == 'create'
+    super
+  end
 end
