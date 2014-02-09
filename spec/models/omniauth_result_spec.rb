@@ -7,6 +7,8 @@ describe OmniauthResult do
   context 'with a matching existing user' do
     let!(:existing_user) { FactoryGirl.create :admin, :provider => 'google', :uid => "https://www.google.com/accounts/o8/id?id=ye_olde_google_user_id" }
     it { expect(user).to eq(existing_user) }
+    it { expect(user.username).to eq('spraints@gmail.com') }
+    it { expect(user).not_to be_changed }
   end
 
   context 'without a matching existing user' do
@@ -14,6 +16,8 @@ describe OmniauthResult do
     it { expect(user.provider).to eq('google') }
     it { expect(user.uid).to eq('https://www.google.com/accounts/o8/id?id=ye_olde_google_user_id') }
     it { expect(user.enabled).to be_false }
+    it { expect(user.username).to eq('spraints@gmail.com') }
+    it { expect(user).not_to be_changed }
   end
 
   let(:auth_hash) { OmniAuth::AuthHash.new({
