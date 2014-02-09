@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :admin do
+  end
+
   factory :customer do
     sequence(:name) { |i| "Automaton #{i}" }
     sequence(:slug) { |i| "slug-#{i}" }

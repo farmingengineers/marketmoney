@@ -5,16 +5,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    auth = OmniauthResult.new(:provider => params[:provider], :omniauth => request.env['omniauth.auth'])
+    auth = OmniauthResult.new(:omniauth => request.env['omniauth.auth'])
     if user = auth.user
-      if user.can_admin?
-        self.current_user = user
-        redirect_to root_path
-      else
-        raise "this should be a nice 401 page"
-      end
+      self.current_user = user
+      redirect_to root_path
     else
-      redirect_to login_with_google_path
+      raise "this should be a nice 401 page"
     end
   end
 
