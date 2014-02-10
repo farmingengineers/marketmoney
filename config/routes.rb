@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get "market" => "customers#edit_all"
   patch "market" => "customers#update_all"
 
-  get ":slug" => "customers#show_self"
+  get "member/:slug" => "self_service#show", :as => :self_service
 end

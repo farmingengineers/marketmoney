@@ -4,6 +4,8 @@
 
 = link_to 'edit', :action => 'edit'
 
+%p
+  %input{type: 'text', readonly: 'yes', class: 'self-service', value: self_service_url(vm.customer.slug)}
 %p= vm.customer.notes
 
 %table.transactions
