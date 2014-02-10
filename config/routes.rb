@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   post   "auth/:provider/callback" => "sessions#create"
   delete "auth"                    => "sessions#destroy"
 
-  resources :customers
+  resources :customers do
+    resources :transactions
+  end
 
   root :to => "customers#index"
   get "market" => "customers#edit_all"

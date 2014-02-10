@@ -20,6 +20,7 @@ class CustomersController < ApplicationController
   def show
     vm.customer = Customer.find(params[:id])
     vm.transaction_summary = TransactionList.new(vm.customer)
+    vm.new_transaction = Transaction.new(:occurred_on => Time.now, :amount => 0)
   end
 
   def new

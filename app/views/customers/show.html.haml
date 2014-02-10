@@ -10,17 +10,29 @@
 %p.customer-notes
   = vm.customer.notes
 
-%table.transactions
-  %tr.starting-balance
-    %td.date
-    %td.description start
-    %td.amount= money vm.transaction_summary.starting_balance
-  - vm.transaction_summary.entries.each do |transaction|
-    %tr.transaction
-      %td.date= date transaction.occurred_on
-      %td.description= transaction.description
-      %td.amount= money transaction.amount
-  %tr.current-balance
-    %td.date= date Date.today
-    %td.description current
-    %td.amount= money vm.transaction_summary.current_balance
+= form_for [vm.customer, vm.new_transaction] do |f|
+  %table.transactions
+    %tr.starting-balance
+      %td.date
+      %td.description start
+      %td.amount= money vm.transaction_summary.starting_balance
+    - vm.transaction_summary.entries.each do |transaction|
+      %tr.transaction
+        %td.date= date transaction.occurred_on
+        %td.description= transaction.description
+        %td.amount= money transaction.amount
+    %tr.current-balance
+      %td.date= date Date.today
+      %td.description current
+      %td.amount= money vm.transaction_summary.current_balance
+    %tr
+      %td.date= f.date_field :occurred_on
+      %td.description= f.text_field :description
+      %td.amount
+        $
+        = f.text_field :amount
+      %td positive is credit, negative is purchases
+    %tr
+      %td.date
+      %td.description
+      %td.amount= f.submit 'Add'
