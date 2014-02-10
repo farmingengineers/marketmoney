@@ -3,9 +3,9 @@
 * [x] add customers
 * [x] list customers, with balances, for printing
 * [x] give customers a random slug so they can see their balance
-* [ ] deploy to heroku
-* [ ] make the name "csa.farmingengineers.com"
+* [x] deploy to heroku
+* [x] make the name "csa.farmingengineers.com"
 * [ ] farming engineers look & feel
 * [ ] print layout for /market
-* [ ] add money to a customer
-* [ ] one-off transactions on customers#show
+* [x] add money to a customer
+* [x] one-off transactions on customers#show
