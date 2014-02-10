@@ -10,6 +10,8 @@ class CustomerList
   end
 
   class CustomerInList
+    include CustomersHelper
+
     def initialize(customer)
       @customer = customer
     end
