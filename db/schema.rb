@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210004757) do
+ActiveRecord::Schema.define(version: 20140210135524) do
 
   create_table "admins", force: true do |t|
     t.string   "provider"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20140210004757) do
   end
 
   add_index "admins", ["provider", "uid"], name: "admin_by_uid", unique: true
+
+  create_table "audits", force: true do |t|
+    t.integer  "admin_id"
+    t.text     "json_data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "customers", force: true do |t|
     t.string   "name"

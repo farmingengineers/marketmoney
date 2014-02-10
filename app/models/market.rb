@@ -2,6 +2,7 @@ class Market
   def initialize(options = {})
     @params = options.fetch(:params)
     @customers = options.fetch(:customers) { Customer.all }
+    @current_user = options.fetch(:current_user)
   end
 
   def valid?
@@ -11,6 +12,7 @@ class Market
   def save!
     ActiveRecord::Base.transaction do
       new_transactions.each do |transaction|
+        Audit.audit!(@current_user, :action => :create, :at => :market, :customer => transaction.customer, :transaction => transaction)
         transaction.save!
       end
     end

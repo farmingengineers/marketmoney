@@ -8,7 +8,7 @@ class CustomersController < ApplicationController
   end
 
   def update_all
-    market = Market.new :params => params[:market]
+    market = Market.new :params => params[:market], :current_user => current_user
     if market.valid?
       market.save!
       redirect_to :action => 'index'
