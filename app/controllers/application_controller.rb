@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :admin_required!
 
-  private
+  protected
 
   helper_method :app_title
   def app_title
@@ -17,12 +17,16 @@ class ApplicationController < ActionController::Base
   def admin_required!
     if admin_required?
       unless current_user && current_user.enabled?
-        render :file => 'public/404.html', :status => 404, :layout => false
+        not_found
       end
     end
   end
 
   def admin_required?
     true
+  end
+
+  def not_found
+    render :file => 'public/404.html', :status => 404, :layout => false
   end
 end

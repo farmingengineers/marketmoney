@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       self.current_user = user
       redirect_to root_path
     else
-      raise "this should be a nice 401 page"
+      not_found
     end
   end
 
