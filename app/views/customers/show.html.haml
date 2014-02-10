@@ -21,6 +21,7 @@
         %td.date= date transaction.occurred_on
         %td.description= transaction.description
         %td.amount= money transaction.amount
+        %td= link_to 'delete', [vm.customer, transaction], :method => :delete, :data => { :confirm => "Are you sure you want to delete \"#{transaction}\"?" }
     %tr.current-balance
       %td.date= date Date.today
       %td.description current

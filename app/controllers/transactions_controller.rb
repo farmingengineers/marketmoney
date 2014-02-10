@@ -7,4 +7,11 @@ class TransactionsController < ApplicationController
     end
     redirect_to customer
   end
+
+  def destroy
+    customer = Customer.find(params[:customer_id])
+    transaction = customer.transactions.find(params[:id])
+    transaction.destroy
+    redirect_to customer
+  end
 end

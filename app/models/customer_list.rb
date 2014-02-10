@@ -10,8 +10,6 @@ class CustomerList
   end
 
   class CustomerInList
-    include CustomersHelper
-
     def initialize(customer)
       @customer = customer
     end
@@ -23,11 +21,7 @@ class CustomerList
     def last_transaction
       @last_transaction ||=
         if transaction = @customer.transactions.last
-          if transaction.amount > 0
-            "signed up for #{money transaction.amount} on #{date transaction.occurred_on}"
-          else
-            "spent #{money -transaction.amount} on #{date transaction.occurred_on}"
-          end
+          transaction.to_s
         else
           ""
         end
