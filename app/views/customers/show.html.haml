@@ -4,8 +4,9 @@
 
 = link_to 'edit', :action => 'edit'
 
-%p.customer-slug
-  %a{href: self_service_url(vm.customer.slug)}= self_service_url(vm.customer.slug)
+- if vm.customer.slug
+  %p.customer-slug
+    %a{href: self_service_url(vm.customer.slug)}= self_service_url(vm.customer.slug)
 %p.customer-notes
   = vm.customer.notes
 
