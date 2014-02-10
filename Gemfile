@@ -20,7 +20,7 @@ gem 'unicorn'
 
 # not production
 group :development, :test do
-  gem 'byebug', :require => false
+  gem 'byebug'
   gem 'debugger', :require => false
   gem 'rspec-rails'
   gem 'sqlite3'

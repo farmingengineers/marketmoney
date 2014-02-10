@@ -2,7 +2,7 @@
 # More info at https://github.com/guard/guard#readme
 
 rspec_options = {
-  :all_after_pass => false,
+  :all_after_pass => true,
   :failed_mode => :none,
   :cmd => 'bundle exec rspec --tty --fail-fast --format documentation --order default'
 }
