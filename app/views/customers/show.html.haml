@@ -5,7 +5,7 @@
 = link_to 'edit', :action => 'edit'
 
 %p.customer-slug
-  %input{type: 'text', readonly: 'yes', value: self_service_url(vm.customer.slug)}
+  %a{href: self_service_url(vm.customer.slug)}= self_service_url(vm.customer.slug)
 %p.customer-notes
   = vm.customer.notes
 
