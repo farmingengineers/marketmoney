@@ -20,4 +20,8 @@ class SessionsController < ApplicationController
     return false if action_name == 'create'
     super
   end
+
+  def admin_required?
+    false
+  end
 end
