@@ -14,6 +14,11 @@ class ApplicationController < ActionController::Base
     ENV['APP_TITLE'] || 'Market Money'
   end
 
+  helper_method :vm
+  def vm
+    @vm ||= OpenStruct.new
+  end
+
   def admin_required!
     if admin_required?
       unless current_user && current_user.enabled?

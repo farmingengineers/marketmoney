@@ -48,9 +48,4 @@ class CustomersController < ApplicationController
     vm.customer = customer
     render :action => form_action
   end
-
-  helper_method :vm
-  def vm
-    @vm ||= OpenStruct.new
-  end
 end
