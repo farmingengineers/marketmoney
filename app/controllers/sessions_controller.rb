@@ -1,9 +1,4 @@
 class SessionsController < ApplicationController
-  def new
-    session.clear
-    redirect_to login_with_google_path
-  end
-
   def create
     auth = OmniauthResult.new(:omniauth => request.env['omniauth.auth'])
     if user = auth.user
@@ -12,6 +7,11 @@ class SessionsController < ApplicationController
     else
       raise "this should be a nice 401 page"
     end
+  end
+
+  def destroy
+    session.clear
+    redirect_to root_path
   end
 
   protected
