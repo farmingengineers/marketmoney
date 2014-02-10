@@ -14,6 +14,11 @@ class Customer < ActiveRecord::Base
     end
   end
 
+  # Public: Add a slug to this customer, but don't save it.
+  def slug_me
+    self.slug ||= build_slug
+  end
+
   private
 
   def build_slug

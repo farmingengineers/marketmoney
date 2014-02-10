@@ -42,6 +42,7 @@ class CustomersController < ApplicationController
 
   def persist(customer, form_action)
     customer.attributes = params.require(:customer).permit(:name, :notes)
+    customer.slug_me
     customer.save!
     redirect_to :action => 'index'
   rescue
