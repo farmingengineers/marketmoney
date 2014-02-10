@@ -1,3 +1,3 @@
 $ ->
 
-  $('input.self-service').on 'click', -> this.select()
+  $('.customer-slug > input').on 'click', -> this.select()

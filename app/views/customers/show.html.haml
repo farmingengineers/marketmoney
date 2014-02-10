@@ -4,9 +4,10 @@
 
 = link_to 'edit', :action => 'edit'
 
-%p
-  %input{type: 'text', readonly: 'yes', class: 'self-service', value: self_service_url(vm.customer.slug)}
-%p= vm.customer.notes
+%p.customer-slug
+  %input{type: 'text', readonly: 'yes', value: self_service_url(vm.customer.slug)}
+%p.customer-notes
+  = vm.customer.notes
 
 %table.transactions
   %tr.starting-balance
