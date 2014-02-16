@@ -5,3 +5,8 @@ body {
 .customer-notes {
   white-space: pre;
 }
+
+.transactions {
+  .date { padding: 0 1em; }
+  .amount { padding: 0 1em; text-align: right; }
+}
