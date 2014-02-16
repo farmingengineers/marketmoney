@@ -3,11 +3,14 @@
   %head
     %title
       Your Market Money
+    = stylesheet_link_tag "application", media: "all"
 
   %body
 
     %h1
-      Market Money -
+      = app_title
+
+    %h2
       = vm.customer.name
 
     %table.transactions
