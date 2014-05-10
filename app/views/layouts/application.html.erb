@@ -3,14 +3,19 @@
 <head>
   <title><%= app_title %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "print", media: (params[:print].present? ? "all" : "print") %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <h1><%= app_title %></h1>
-<div class="current_user"><%= current_user %></div>
-<a href="/auth" data-method="delete">Logout</a>
+<nav>
+  <div class="current_user"><%= current_user %></div>
+  <a href="/auth" data-method="delete">Logout</a>
+  <%= yield :nav %>
+</nav>
+
 <%= yield %>
 
 </body>

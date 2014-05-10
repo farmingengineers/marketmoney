@@ -1,0 +1,52 @@
+span.print-only {
+  display: inline;
+}
+
+nav {
+  display: none;
+}
+
+:link, :visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+input {
+  border: 0;
+  border-bottom: solid 1px black;
+
+  &#market_date {
+    color: white;
+  }
+
+  &[type=submit] {
+    display: none;
+  }
+
+}
+
+::input-placeholder { color: white; }
+::-webkit-input-placeholder { color: white; }
+::-moz-placeholder { color: white; }
+:-moz-placeholder { color: white; }
+:-ms-placeholder { color: white; }
+
+table.customers {
+  margin-top: 2em;
+
+  .last-visit {
+    display: none;
+  }
+
+  tr {
+    line-height: 0.5in;
+  }
+
+  td {
+    padding: 0 0.1in;
+  }
+
+  td.spent-today:before {
+    content: '$';
+  }
+}
