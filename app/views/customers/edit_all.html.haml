@@ -1,4 +1,6 @@
-= link_to '<< Back', :action => 'index'
+- content_for :nav do
+  = link_to '<< Back', :action => 'index'
+
 =form_tag market_path, :method => 'patch' do
   %div
     = label_tag 'market[date]', 'Date'
@@ -7,9 +9,13 @@
     %tr
       %th.name Name
       %th.last-visit Last Visit
-      %th.balance Balance
+      %th.balance
+        Balance
+        %span.print-only
+          on
+          = Date.today
       %th.spent-today Spent today
-      %th.spent-on
+      %th.spent-on Description
     - vm.customers.each do |customer|
       %tr.customer
         %td.name= link_to customer, customer

@@ -1,4 +1,5 @@
-= link_to '<< Back', :action => 'index'
+- content_for :nav do
+  = link_to '<< Back', :action => 'index'
 
 %h1= vm.customer.name
 
