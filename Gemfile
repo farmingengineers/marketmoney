@@ -14,13 +14,13 @@ gem 'uglifier', '>= 1.3.0'
 # everything else
 gem 'dotenv'
 gem 'haml-rails'
-gem 'omniauth-openid'
+gem 'omniauth-openid-connect', :git => "https://github.com/jjbohn/omniauth-openid-connect"
 gem 'unicorn'
 
 
 # not production
 group :development, :test do
-  gem 'byebug'
+  gem 'byebug', :require => false
   gem 'debugger', :require => false
   gem 'rspec-rails'
   gem 'sqlite3'
