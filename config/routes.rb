@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get    "auth/google"             => "sessions#omniauth"
-  post   "auth/:provider/callback" => "sessions#create"
+  get    "auth/:provider/callback" => "sessions#create"
   delete "auth"                    => "sessions#destroy"
 
   resources :customers do
