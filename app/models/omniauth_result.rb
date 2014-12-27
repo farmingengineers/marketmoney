@@ -11,8 +11,9 @@ class OmniauthResult
   private
 
   def find_or_create_user
-    user = Admin.where(:provider => @auth.provider, :uid => @auth.uid).first_or_create
-    user.update_attribute :username, @auth.info.email
+    user = Admin.where(:provider => @auth.provider, :username => @auth.info.email).first_or_initialize
+    user.uid = @auth.uid
+    user.save!
     user
   end
 end
