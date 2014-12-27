@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210135524) do
+ActiveRecord::Schema.define(version: 20141227151324) do
 
   create_table "admins", force: true do |t|
     t.string   "provider"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140210135524) do
   end
 
   add_index "admins", ["provider", "uid"], name: "admin_by_uid", unique: true
+  add_index "admins", ["provider", "username"], name: "index_admins_on_provider_and_username", unique: true
 
   create_table "audits", force: true do |t|
     t.integer  "admin_id"
