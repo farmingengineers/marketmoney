@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 # everything else
 gem 'dotenv'
 gem 'haml-rails'
-gem 'omniauth-openid'
+gem 'omniauth-google-oauth2'
 gem 'unicorn'
 
 

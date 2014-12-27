@@ -1,6 +1,6 @@
-require 'openid/store/filesystem'
+Dotenv.load ".env.#{Rails.env}"
+
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :openid,
-    :store => OpenID::Store::Filesystem.new('./tmp/openid'),
-    :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id'
+  provider :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"],
+    :name => "google"
 end
