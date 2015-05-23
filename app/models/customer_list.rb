@@ -1,7 +1,7 @@
 class CustomerList
-  def initialize(options = {})
-    @hide_zeroes = options.fetch(:hide_zeroes) { false }
-    @customers = options.fetch(:customers) { Customer.all }
+  def initialize(customers: nil, hide_zeroes: false)
+    @hide_zeroes = hide_zeroes
+    @customers = customers || Customer.all
   end
 
   def each
