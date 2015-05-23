@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.2.0'
 
 # rails
 gem 'rails', '4.1.0.beta1'
@@ -21,7 +21,6 @@ gem 'unicorn'
 # not production
 group :development, :test do
   gem 'byebug'
-  gem 'debugger', :require => false
   gem 'rspec-rails'
   gem 'sqlite3'
 end
