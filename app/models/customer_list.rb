@@ -6,7 +6,7 @@ class CustomerList
 
   def each
     @customers.each do |customer|
-      unless @hide_zeroes && @customer.balance < 0.01
+      unless @hide_zeroes && customer.balance < 0.01
         yield CustomerInList.new(customer)
       end
     end
