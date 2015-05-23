@@ -1,11 +1,14 @@
 class CustomerList
   def initialize(options = {})
+    @hide_zeroes = options.fetch(:hide_zeroes) { false }
     @customers = options.fetch(:customers) { Customer.all }
   end
 
   def each
     @customers.each do |customer|
-      yield CustomerInList.new(customer)
+      unless @hide_zeroes && @customer.balance == 0
+        yield CustomerInList.new(customer)
+      end
     end
   end
 

@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   end
 
   def edit_all
-    vm.customers = CustomerList.new
+    vm.customers = CustomerList.new(hide_zeros: true)
   end
 
   def update_all
