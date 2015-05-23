@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe Market do
-  subject(:market) { Market.new(:params => params.with_indifferent_access, :customers => customers) }
+  subject(:market) { Market.new(:params => params.with_indifferent_access, :customers => customers, :current_user => current_user) }
   let(:params) { {} } # contents of `params[:market]` from a customers#update_all request.
   let(:customers) { Customer.all }
+  let(:current_user) { FactoryGirl.create :admin }
 
   context 'with no date' do
     it { expect(market).not_to be_valid }
