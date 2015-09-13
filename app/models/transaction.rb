@@ -5,6 +5,8 @@ class Transaction < ActiveRecord::Base
   validates :occurred_on, :presence => true
   validates :amount, :numericality => true, :presence => true
 
+  default_scope { order(:occurred_on) }
+
   def to_s
     if amount > 0
       "signed up for #{money amount} on #{date occurred_on}"
