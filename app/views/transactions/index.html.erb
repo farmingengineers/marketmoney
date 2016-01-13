@@ -1,0 +1,7 @@
+<% content_for :nav do %>
+  <%= link_to "<< Back", "/" %>
+<% end %>
+
+<% vm.transactions.each do |trans| %>
+  <div><%= trans.customer.name %> <%= trans %></div>
+<% end %>

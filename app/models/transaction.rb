@@ -6,6 +6,7 @@ class Transaction < ActiveRecord::Base
   validates :amount, :numericality => true, :presence => true
 
   default_scope { order(:occurred_on) }
+  scope :since, ->(date) { where("occurred_on > :date", :date => date) }
 
   def to_s
     if amount > 0
