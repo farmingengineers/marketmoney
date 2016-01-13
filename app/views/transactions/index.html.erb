@@ -1,0 +1,14 @@
+<% content_for :nav do %>
+  <%= link_to "<< Back", "/" %>
+<% end %>
+
+<table>
+  <% vm.transactions.each do |trans| %>
+    <tr>
+      <td><%= trans.occurred_on %></td>
+      <td><%= trans.customer.name %></td>
+      <td><%= trans.description %></td>
+      <td><%= trans.amount %></td>
+    </tr>
+  <% end %>
+</table>

@@ -2,6 +2,7 @@
 
 = link_to '+ New Customer', new_customer_path
 = link_to 'Market', market_path
+= link_to 'Recent', transactions_path(from: "-1y")
 
 %table.customers
   %tr

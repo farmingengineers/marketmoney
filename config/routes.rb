@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :customers do
     resources :transactions
   end
+  get "transactions" => "transactions#index"
 
   root :to => "customers#index"
   get "market" => "customers#edit_all"
