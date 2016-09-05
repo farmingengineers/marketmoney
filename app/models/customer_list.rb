@@ -4,6 +4,10 @@ class CustomerList
     @customers = customers || Customer.all
   end
 
+  def aggregate_balance
+    @customers.inject(0.0) { |total, customer| total + customer.balance }
+  end
+
   def each
     @customers.each do |customer|
       unless @hide_zeroes && customer.balance < 0.01
