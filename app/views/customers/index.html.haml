@@ -14,3 +14,7 @@
       %td.name= link_to customer, customer
       %td.last-visit= customer.last_transaction
       %td.balance= money customer.balance
+  %tr.total
+    %td.name total
+    %td
+    %td.balance= money vm.customers.aggregate_balance

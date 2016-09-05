@@ -1,5 +1,21 @@
 require 'spec_helper'
 
+describe CustomerList do
+  subject { described_class.new(customers: customers) }
+  context 'with several customers' do
+    let(:customers) { [customer1, customer2] }
+    let(:customer1) { FactoryGirl.create :customer }
+    let(:customer2) { FactoryGirl.create :customer }
+    before do
+      FactoryGirl.create :transaction, :customer => customer1, :occurred_on => '2013-01-01', :amount => 100
+      FactoryGirl.create :transaction, :customer => customer1, :occurred_on => '2013-02-02', :amount => -20
+      FactoryGirl.create :transaction, :customer => customer1, :occurred_on => '2013-01-01', :amount => 10
+      FactoryGirl.create :transaction, :customer => customer1, :occurred_on => '2013-02-02', :amount => -2
+    end
+    it { expect(subject.aggregate_balance).to eq(88) }
+  end
+end
+
 describe CustomerList::CustomerInList do
   subject { described_class.new(customer) }
   context 'with an empty customer' do
