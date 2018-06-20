@@ -3,4 +3,4 @@
 set -e
 set -x
 
-git push git@heroku.com:farmingengineers-csa.git HEAD:refs/heads/master "$@"
+git push https://git.heroku.com/farmingengineers-csa.git HEAD:refs/heads/master "$@"
