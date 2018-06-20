@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 # rails
-gem 'rails', '4.1.0.beta1'
+gem 'rails', '~> 4.1.14'
 
 # asset pipeline
 gem 'coffee-rails', '~> 4.0.0'
