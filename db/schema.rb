@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20141227151324) do
 
-  create_table "admins", force: true do |t|
+  create_table "admins", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
     t.string   "username"
@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20141227151324) do
   add_index "admins", ["provider", "uid"], name: "admin_by_uid", unique: true
   add_index "admins", ["provider", "username"], name: "index_admins_on_provider_and_username", unique: true
 
-  create_table "audits", force: true do |t|
+  create_table "audits", force: :cascade do |t|
     t.integer  "admin_id"
     t.text     "json_data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "customers", force: true do |t|
+  create_table "customers", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
     t.datetime "created_at"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20141227151324) do
 
   add_index "customers", ["slug"], name: "customer_by_slug", unique: true
 
-  create_table "transactions", force: true do |t|
+  create_table "transactions", force: :cascade do |t|
     t.date     "occurred_on"
     t.string   "description"
     t.float    "amount"
