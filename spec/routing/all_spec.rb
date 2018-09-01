@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'routing' do
+describe 'routing', type: :routing do
   context 'farmer' do
     it { expect(get('/')).to route_to("customers#index") }
     it { expect(get('/customers/new')).to route_to("customers#new") }

@@ -22,7 +22,7 @@ gem 'rake', '10.1.1'
 # not production
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '2.14.1'
+  gem 'rspec-rails', '2.99.0'
   gem 'sqlite3'
 end
 
