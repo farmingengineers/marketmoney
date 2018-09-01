@@ -1,4 +1,4 @@
-class Customer < ActiveRecord::Base
+class Customer < ApplicationRecord
   has_many :transactions
 
   validates :name, :presence => true

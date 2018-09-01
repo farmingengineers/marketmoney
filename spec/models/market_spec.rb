@@ -4,7 +4,7 @@ describe Market do
   subject(:market) { Market.new(:params => params.with_indifferent_access, :customers => customers, :current_user => current_user) }
   let(:params) { {} } # contents of `params[:market]` from a customers#update_all request.
   let(:customers) { Customer.all }
-  let(:current_user) { FactoryGirl.create :admin }
+  let(:current_user) { FactoryBot.create :admin }
 
   context 'with no date' do
     it { expect(market).not_to be_valid }
@@ -17,7 +17,7 @@ describe Market do
 
   context 'with date' do
     let(:params) { { :date => '2014-02-02', :transactions => transaction_params } }
-    let!(:customer) { FactoryGirl.create :customer }
+    let!(:customer) { FactoryBot.create :customer }
 
     context 'and no customer data' do
       let(:transaction_params) { {} }
