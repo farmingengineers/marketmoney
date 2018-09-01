@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+#/ Usage: script/enable-admin EMAIL
+
+require_relative "../config/environment"
+
+admin = Admin.where(username: ARGV.first).first
+if admin
+  admin.enabled = true
+  admin.save!
+  puts "#{admin} is now enabled!"
+else
+  if ARGV.size == 1
+    puts "error: #{ARGV.first.inspect} has not tried to log in yet."
+  end
+  system "cat #$0 | grep ^#/ | cut -c4-"
+  exit 1
+end
+
+# vim: ft=ruby
