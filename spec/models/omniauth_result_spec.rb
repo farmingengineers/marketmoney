@@ -5,7 +5,7 @@ describe OmniauthResult do
   let(:user) { subject.user }
 
   context 'with a matching existing user' do
-    let!(:existing_user) { FactoryGirl.create :admin, :provider => 'google', :username => 'spraints@gmail.com' }
+    let!(:existing_user) { FactoryBot.create :admin, :provider => 'google', :username => 'spraints@gmail.com' }
     it { expect(user).to eq(existing_user) }
     it { expect(user.username).to eq('spraints@gmail.com') }
     it { expect(user).not_to be_changed }
