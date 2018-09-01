@@ -13,6 +13,6 @@ describe 'routing' do
   end
 
   context 'member' do
-    it { expect(get('/5a5e56f')).to route_to("customers#show_self", :slug => '5a5e56f') }
+    it { expect(get('/member/5a5e56f')).to route_to("self_service#show", :slug => '5a5e56f') }
   end
 end
