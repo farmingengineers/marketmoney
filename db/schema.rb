@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 20141227151324) do
 
   create_table "admins", force: :cascade do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "username"
-    t.boolean  "enabled"
+    t.string "provider"
+    t.string "uid"
+    t.string "username"
+    t.boolean "enabled"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["provider", "uid"], name: "admin_by_uid", unique: true
@@ -24,26 +24,26 @@ ActiveRecord::Schema.define(version: 20141227151324) do
   end
 
   create_table "audits", force: :cascade do |t|
-    t.integer  "admin_id"
-    t.text     "json_data"
+    t.integer "admin_id"
+    t.text "json_data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "slug"
+    t.string "name"
+    t.string "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "notes"
+    t.text "notes"
     t.index ["slug"], name: "customer_by_slug", unique: true
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.date     "occurred_on"
-    t.string   "description"
-    t.float    "amount"
-    t.integer  "customer_id"
+    t.date "occurred_on"
+    t.string "description"
+    t.float "amount"
+    t.integer "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

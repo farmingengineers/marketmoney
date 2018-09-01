@@ -8,12 +8,14 @@ class CustomersController < ApplicationController
   end
 
   def update_all
-    market = Market.new :params => params[:market], :current_user => current_user
+    market_params = params.require(:market).permit(:date, :transactions => {}).to_h
+    market = Market.new :params => market_params, :current_user => current_user
     if market.valid?
       market.save!
       redirect_to :action => 'index'
     else
-      render :action => 'edit', :locals => { :vm => model }
+      vm.customers = CustomerList.new(hide_zeroes: true)
+      render :action => 'edit_all', :locals => { :vm => vm }
     end
   end
 
