@@ -213,7 +213,8 @@ DEPENDENCIES
   factory_girl_rails
   haml-rails
   jquery-rails (= 4.0.5)
-  omniauth-google-oauth2
+  omniauth (= 1.4.2)
+  omniauth-google-oauth2 (= 0.2.6)
   pg
   rails (= 4.2.10)
   rails_12factor
