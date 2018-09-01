@@ -6,7 +6,7 @@ ruby '2.4.4'
 gem 'rails', '4.2.10'
 
 # asset pipeline
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '4.1.1'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 4.0.0.rc1'
 gem 'uglifier', '>= 1.3.0'
