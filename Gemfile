@@ -17,8 +17,6 @@ gem 'haml-rails'
 gem 'omniauth-google-oauth2'
 gem 'unicorn'
 
-gem 'rake', '10.1.1'
-
 # not production
 group :development, :test do
   gem 'byebug'

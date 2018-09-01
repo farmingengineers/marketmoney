@@ -180,7 +180,6 @@ DEPENDENCIES
   pg
   rails (~> 4.1.14)
   rails_12factor
-  rake (= 10.1.1)
   rspec-rails (= 3.8.0)
   sass-rails (~> 4.0.0.rc1)
   spring
