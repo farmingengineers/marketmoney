@@ -45,13 +45,6 @@ GEM
     byebug (2.5.0)
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
-    coffee-rails (4.1.1)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.1.x)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     columnize (0.3.6)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
@@ -226,7 +219,6 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  coffee-rails (= 4.1.1)
   dotenv
   factory_bot_rails (= 4.10.0)
   haml-rails

@@ -6,7 +6,6 @@ ruby '2.4.4'
 gem 'rails', '5.0.7'
 
 # asset pipeline
-gem 'coffee-rails', '4.1.1'
 gem 'jquery-rails', '4.1.1'
 gem 'sass-rails', '5.0.7' # deprecated, will need to use dart sass or sassc.
 gem 'uglifier', '>= 1.3.0'
