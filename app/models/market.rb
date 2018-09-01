@@ -10,7 +10,7 @@ class Market
   end
 
   def save!
-    ActiveRecord::Base.transaction do
+    ApplicationRecord.transaction do
       new_transactions.each do |transaction|
         Audit.audit!(@current_user, :action => :create, :at => :market, :customer => transaction.customer, :transaction => transaction)
         transaction.save!

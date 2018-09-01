@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -20,10 +19,9 @@ ActiveRecord::Schema.define(version: 20141227151324) do
     t.boolean  "enabled"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["provider", "uid"], name: "admin_by_uid", unique: true
+    t.index ["provider", "username"], name: "index_admins_on_provider_and_username", unique: true
   end
-
-  add_index "admins", ["provider", "uid"], name: "admin_by_uid", unique: true
-  add_index "admins", ["provider", "username"], name: "index_admins_on_provider_and_username", unique: true
 
   create_table "audits", force: :cascade do |t|
     t.integer  "admin_id"
@@ -38,9 +36,8 @@ ActiveRecord::Schema.define(version: 20141227151324) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "notes"
+    t.index ["slug"], name: "customer_by_slug", unique: true
   end
-
-  add_index "customers", ["slug"], name: "customer_by_slug", unique: true
 
   create_table "transactions", force: :cascade do |t|
     t.date     "occurred_on"

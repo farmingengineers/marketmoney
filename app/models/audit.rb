@@ -1,4 +1,4 @@
-class Audit < ActiveRecord::Base
+class Audit < ApplicationRecord
   def self.audit!(admin, data)
     new.tap do |audit_record|
       audit_record.admin = admin
