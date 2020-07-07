@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.6.3'
 
 # rails
-gem 'rails', '5.1.6'
+gem 'rails', '5.2.4.3'
 
 # asset pipeline
 gem 'jquery-rails', '4.1.1'

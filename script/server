@@ -1,5 +1,3 @@
-#!/bin/sh -e
+#!/bin/bash
 
-./script/bootstrap --local --quiet
-
-./bin/unicorn -l 127.0.0.1:3030 -c config/unicorn.rb
+exec ./bin/unicorn -l 127.0.0.1:3030 -c config/unicorn.rb

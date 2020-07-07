@@ -1,4 +1,4 @@
-class CustomerSlugAndAdminProviderUidAreUnique < ActiveRecord::Migration
+class CustomerSlugAndAdminProviderUidAreUnique < ActiveRecord::Migration[4.2]
   def up
     remove_index :admins, [:provider, :uid]
     add_index :admins, [:provider, :uid], :unique => true, :name => 'admin_by_uid'
