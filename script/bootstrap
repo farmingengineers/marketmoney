@@ -1,3 +1,8 @@
-#!/bin/sh -e
+#!/bin/bash
 
-bundle install --path .bundle "$@"
+set -e
+set -o nounset
+
+brew bundle
+bundle config --local build.pg --with-opt-dir="/usr/local/opt/libpq"
+bundle install --path .bundle
