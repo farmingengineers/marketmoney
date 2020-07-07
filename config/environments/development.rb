@@ -26,4 +26,9 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # In dev, I might need to run this to get old admin records to work correctly:
+  #   Admin.where(enabled: "t").update_all(enabled: true)
+  #   Admin.where(enabled: "f").update_all(enabled: false)
+  config.active_record.sqlite3.represent_boolean_as_integer = true
 end
