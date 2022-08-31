@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 # everything else
 gem 'dotenv'
 gem 'haml-rails'
-gem 'omniauth', '1.4.3'
+gem 'omniauth', '1.9.2'
 gem 'omniauth-google-oauth2', '0.2.10'
 gem 'unicorn'
 
