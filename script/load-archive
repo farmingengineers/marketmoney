@@ -1,0 +1,13 @@
+#!/bin/bash
+# Usage: See docker-compose.yml
+
+set -e
+set -o nounset
+
+ARCHIVE_DESTINATION=~/Dropbox/self/Farm/
+ARCHIVE_NAME=marketmoney-db.dump
+
+docker compose \
+  -f docker-compose.yml \
+  -f docker-compose.restore.yml \
+  run --rm restore

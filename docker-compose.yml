@@ -1,0 +1,20 @@
+# Usage:
+#   docker-compose up -d
+#   script/load-archive
+#   open http://127.0.0.1:9737
+#   choose "postgresql", "db", "postgres", "pgpass", "marketmoney"
+services:
+  adminer:
+    image: "adminer"
+    ports:
+      - "127.0.0.1:9737:8080"
+  db:
+    image: "postgres:14.1"
+    volumes:
+      - "pgdata:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_PASSWORD: pgpass
+      POSTGRES_DB: marketmoney
+
+volumes:
+  pgdata:

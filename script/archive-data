@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+set -o nounset
+
+ARCHIVE_DESTINATION=~/Dropbox/self/Farm/
+ARCHIVE_NAME=marketmoney-db.dump
+
+heroku pg:backups:capture
+heroku pg:backups:download --output=$ARCHIVE_NAME
+
+mv $ARCHIVE_NAME $ARCHIVE_DESTINATION/

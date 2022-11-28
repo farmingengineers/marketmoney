@@ -1,0 +1,20 @@
+services:
+  restore:
+    image: "postgres:14.1"
+    command:
+      - "pg_restore"
+      - "--verbose"
+      - "--clean"
+      - "--no-acl"
+      - "--no-owner"
+      - "-h"
+      - "db"
+      - "-U"
+      - "postgres"
+      - "-d"
+      - "marketmoney"
+      - "/marketmoney-db.dump"
+    volumes:
+      - "/Users/spraints/Dropbox/self/Farm/marketmoney-db.dump:/marketmoney-db.dump:ro"
+    environment:
+      PGPASSWORD: pgpass
